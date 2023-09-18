@@ -95,6 +95,12 @@
             Console.WriteLine(listaEventi);
         }
 
+        public void AggiungiConferenza(Conferenza conferenza)
+        {
+            eventi.Add(conferenza);
+        }
+
+
 
     }
 }

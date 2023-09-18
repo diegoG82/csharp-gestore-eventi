@@ -21,7 +21,7 @@ for (int i = 0; i < NumeroProgramma; i++)
     Console.WriteLine("Inserisci la data dell'evento " + (i + 1) + ":");
     DateTime dataEvento = DateTime.Parse(Console.ReadLine());
 
-    Console.WriteLine("Inserisci la capienza massima dell'evento:" + (i + 1) + ":");
+    Console.WriteLine("Inserisci la capienza massima dell'evento" + (i + 1) + ":");
     int capienzaTotale = int.Parse(Console.ReadLine());
 
     Console.WriteLine("Quanti posti vuoi prenotare?");
@@ -90,8 +90,35 @@ DateTime dataEventoRichiesto = DateTime.Parse(Console.ReadLine());
 programma.StampaListaEventiPerData(dataEventoRichiesto);
 Console.WriteLine();
 
+//BONUS
 
+Console.WriteLine("Ecco il gestore delle conferenze!");
 
+Console.Write("Nome della conferenza: ");
+
+string conferenza = Console.ReadLine();
+
+Console.Write("Inserisci la data della conferenza(gg/mm/yyyy): ");
+
+DateTime dataConferenza = DateTime.Parse(Console.ReadLine());
+
+Console.Write("Inserisci i posti della tua conferenza: ");
+
+int postiConferenza = int.Parse(Console.ReadLine());
+int postiPrenotati = 0;
+
+Console.Write("Inserisci il nome del relatore: ");
+string nomeRelatore = Console.ReadLine();
+
+Console.Write("Inserisci il prezzo della conferenza: ");
+int costoConferenza = int.Parse(Console.ReadLine());
+
+Conferenza nuovaConferenza = new Conferenza(conferenza, dataConferenza, postiConferenza, postiPrenotati, nomeRelatore, costoConferenza);
+
+programma.AggiungiConferenza(nuovaConferenza);
+
+Console.WriteLine("Ecco il programma eventi con anche le conferenze!");
+Console.WriteLine(programma.ToString());
 
 
 
