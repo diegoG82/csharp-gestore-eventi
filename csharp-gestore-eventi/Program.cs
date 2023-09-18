@@ -87,7 +87,7 @@ Console.WriteLine();
 Console.WriteLine("Inserisci una data per cercare un'evento (gg/mm/yyyy): ");
 
 DateTime dataEventoRichiesto = DateTime.Parse(Console.ReadLine());
-Console.WriteLine(ProgrammaEventi.StampaListaEventi(programma.ListaEventiPerData(dataEventoRichiesto)));
+programma.StampaListaEventiPerData(dataEventoRichiesto);
 Console.WriteLine();
 
 

@@ -33,7 +33,7 @@
             List<Evento> listaeventiperdata = new List<Evento>();
             foreach (Evento evento in this.eventi)
             {
-                if (evento.Data == data)
+                if (evento.Data == data.Date)
                 {
                     listaeventiperdata.Add(evento);
                 }
@@ -86,6 +86,13 @@
             list += "IL Titolo del programma di eventi e': " + this.titolo + "\n";
             list += StampaListaEventi(this.eventi);
             return list;
+        }
+
+        public void StampaListaEventiPerData(DateTime data)
+        {
+            List<Evento> eventiPerData = ListaEventiPerData(data);
+            string listaEventi = StampaListaEventi(eventiPerData);
+            Console.WriteLine(listaEventi);
         }
 
 
