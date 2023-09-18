@@ -47,12 +47,7 @@ catch(Exception e)
 
 Console.WriteLine($"Posti rimanenti = {evento.Capienza - evento.Postiprenotati}");
 
-
-
 bool continua = true;
-
-
-
 
 while(continua)
 
@@ -73,13 +68,15 @@ while(continua)
     {
         evento.DisdiciPosti(postiDaDisdire);
         Console.WriteLine($"Numero di posti ancora prenotatati = {evento.Postiprenotati}");
-        Console.WriteLine($"numero di disdetti = {postiDaDisdire}");
+        Console.WriteLine($"numero di posti disdetti = {postiDaDisdire}");
 
         if(evento.Postiprenotati == 0)
         {
             Console.WriteLine("Non ci sono piu' posti da disdire");
             continua = false;
         }
+
+     
 
     }
     catch(Exception e)
