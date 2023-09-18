@@ -90,18 +90,51 @@
 
         public void PrenotaPosti(int posti)
         {
+            //CASO EVENTO PASSATO
             if (data < DateTime.Now)
             {
                 throw new Exception("Non e' possibile prenotare un'evento passato");
             }
-           
-            if (capienza  == 0)
+
+
+            //PRENOTAZIONE
+            if (posti <= Capienza - Postiprenotati)
             {
-                throw new Exception("Non c'è capienza per questo evento");
+                postiprenotati += posti;
             }
-           
+            else
+            {
+                throw new Exception("Non c'e posto per l'evento");
+            }
+
         }
 
+        //DISDICIPOSTI
 
+
+        public void DisdiciPosti(int posti)
+        {
+            //CASO EVENTO PASSATO
+            if (data < DateTime.Now)
+            {
+                throw new Exception("Non e' possibile disdire un'evento passato");
+            }
+
+            //DISDETTA
+            if (posti <= Postiprenotati)
+            {
+                postiprenotati -= posti;
+            }
+
+
+        }
+
+        //OVERRIDE TO STRING PER STRINGA FORMATTATA CON DATA E TITOLO
+
+        public override string ToString()
+        {
+            string dataformattata = Data.ToString("dd/MM/yyyy");
+            return dataformattata + " - " + Titolo;
+        }
     }
 }
