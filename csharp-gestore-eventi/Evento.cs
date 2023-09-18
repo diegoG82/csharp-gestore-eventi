@@ -134,7 +134,7 @@
         public override string ToString()
         {
             string dataformattata = Data.ToString("dd/MM/yyyy");
-            return dataformattata + " - " + Titolo;
+            return dataformattata + " - " + Titolo + " - " + " Capienza totale: " + Capienza + " Persone";
         }
     }
 }
