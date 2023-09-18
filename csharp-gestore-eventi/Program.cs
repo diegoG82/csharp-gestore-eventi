@@ -31,3 +31,60 @@ catch (Exception e)
     return;
 
 }
+
+Console.WriteLine("Quanti posti vuoi prenotare?");
+int PostiPrenotati = int.Parse(Console.ReadLine());
+
+try
+{
+    evento.PrenotaPosti(PostiPrenotati);
+    Console.WriteLine($"Numero di posti prenotati = {evento.Postiprenotati}");
+}
+catch(Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
+Console.WriteLine($"Posti rimanenti = {evento.Capienza - evento.Postiprenotati}");
+
+
+
+bool continua = true;
+
+
+
+
+while(continua)
+
+{
+    Console.WriteLine("Vuoi disdire dei posti? (si/no)");
+    string risposta = Console.ReadLine();
+
+    if (risposta == "no")
+    {
+        continua = false;
+        continue;
+    }
+
+    Console.WriteLine("Indica il numero di posti da disdire:");
+
+    int postiDaDisdire = int.Parse(Console.ReadLine()); 
+    try
+    {
+        evento.DisdiciPosti(postiDaDisdire);
+        Console.WriteLine($"Numero di posti ancora prenotatati = {evento.Postiprenotati}");
+        Console.WriteLine($"numero di disdetti = {postiDaDisdire}");
+
+        if(evento.Postiprenotati == 0)
+        {
+            Console.WriteLine("Non ci sono piu' posti da disdire");
+            continua = false;
+        }
+
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+
+}

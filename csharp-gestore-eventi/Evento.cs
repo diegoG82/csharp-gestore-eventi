@@ -121,10 +121,18 @@
             }
 
             //DISDETTA
-            if (posti <= Postiprenotati)
+
+
+            if (posti > Postiprenotati)
+            {
+                throw new Exception("Nono puoi disdire piu' prenotazioni di quelle che hai prenotato");
+            }
+
+            else if (posti <= Postiprenotati)
             {
                 postiprenotati -= posti;
             }
+
 
 
         }
