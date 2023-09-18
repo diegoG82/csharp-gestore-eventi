@@ -18,7 +18,7 @@ for (int i = 0; i < NumeroProgramma; i++)
     Console.WriteLine("Inserisci il nome dell'evento " + (i + 1) + ":");
     string nomeEvento = Console.ReadLine();
 
-    Console.WriteLine("Inserisci la data dell'evento" + (i + 1) + ":");
+    Console.WriteLine("Inserisci la data dell'evento " + (i + 1) + ":");
     DateTime dataEvento = DateTime.Parse(Console.ReadLine());
 
     Console.WriteLine("Inserisci la capienza massima dell'evento:" + (i + 1) + ":");
@@ -46,37 +46,23 @@ for (int i = 0; i < NumeroProgramma; i++)
             Console.WriteLine("Vuoi disdire dei posti? (si/no)");
             string risposta = Console.ReadLine();
 
-            if (risposta == "no")
-            {
-                continua = false;
-                continue;
-            }
 
-            Console.WriteLine("Indica il numero di posti da disdire:");
-
-            int postiDaDisdire = int.Parse(Console.ReadLine());
-            try
+            if (risposta == "si")
             {
+                Console.WriteLine("Indica il numero di posti da disdire:");
+                int postiDaDisdire = int.Parse(Console.ReadLine());
                 evento.DisdiciPosti(postiDaDisdire);
                 Console.WriteLine($"Numero di posti ancora prenotatati = {evento.Postiprenotati}");
                 Console.WriteLine($"numero di posti disdetti = {postiDaDisdire}");
-
-                if (evento.Postiprenotati == 0)
-                {
-                    Console.WriteLine("Non ci sono piu' posti da disdire");
-                    continua = false;
-                }
-
-
-
             }
-            catch (Exception e)
+
+            else if (risposta == "no")
             {
-                Console.WriteLine(e.Message);
-                return;
-
+                Console.WriteLine("Procediamo alle fase successiva");
+                Console.WriteLine();
+                continua = false;
+                continue;
             }
-
 
         }
     }
@@ -86,7 +72,6 @@ for (int i = 0; i < NumeroProgramma; i++)
         return;
 
     }
-
 
 }
 
@@ -100,9 +85,10 @@ Console.WriteLine();
 
 //RICERCA EVENTO PER DATA
 Console.WriteLine("Inserisci una data per cercare un'evento (gg/mm/yyyy): ");
-Console.WriteLine();
+
 DateTime dataEventoRichiesto = DateTime.Parse(Console.ReadLine());
 Console.WriteLine(ProgrammaEventi.StampaListaEventi(programma.ListaEventiPerData(dataEventoRichiesto)));
+Console.WriteLine();
 
 
 
