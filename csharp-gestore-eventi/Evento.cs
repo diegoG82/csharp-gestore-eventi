@@ -10,15 +10,17 @@
         private int postiprenotati;
 
         // COSTRUTTORE EVENTI
-        public Evento(string titolo, DateTime data, int capienza)
+        public Evento(string titolo, DateTime data, int capienza, int postiprenotati = 0)
         {
             Titolo = titolo;
             Data = data;
             Capienza = capienza;
-
+            this.postiprenotati = postiprenotati;
             //COME RICHIESTO SI INIZIALIZZA IL NUMERO DEI POSTI PRENOTATI A 0
-            postiprenotati = 0;
+         
         }
+
+     
 
         //IMPOSTO I GETTER:
 
@@ -82,7 +84,8 @@
         {
             get { return postiprenotati; }
         }
-
+           
+            
 
         //METODI
 
