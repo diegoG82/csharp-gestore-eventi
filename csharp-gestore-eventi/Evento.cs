@@ -17,10 +17,10 @@
             Capienza = capienza;
             this.postiprenotati = postiprenotati;
             //COME RICHIESTO SI INIZIALIZZA IL NUMERO DEI POSTI PRENOTATI A 0
-         
+
         }
 
-     
+
 
         //IMPOSTO I GETTER:
 
@@ -84,8 +84,8 @@
         {
             get { return postiprenotati; }
         }
-           
-            
+
+
 
         //METODI
 
@@ -113,8 +113,6 @@
         }
 
         //DISDICIPOSTI
-
-
         public void DisdiciPosti(int posti)
         {
             //CASO EVENTO PASSATO
@@ -135,8 +133,6 @@
             {
                 postiprenotati -= posti;
             }
-
-
 
         }
 

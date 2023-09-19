@@ -1,6 +1,6 @@
 ﻿using csharp_gestore_eventi;
 
-Console.WriteLine("Benvenuto alla gestione delle fiere del fumetto 2023!");
+Console.WriteLine("Benvenuto alla gestione ei tuoi eventi");
 Console.WriteLine();
 
 Console.WriteLine("inserisci il nome della lista degli eventi:");
@@ -94,11 +94,11 @@ Console.WriteLine();
 
 Console.WriteLine("Ecco il gestore delle conferenze!");
 
-Console.Write("Nome della conferenza: ");
+Console.WriteLine("Nome della conferenza: ");
 
 string conferenza = Console.ReadLine();
 
-Console.Write("Inserisci la data della conferenza(gg/mm/yyyy): ");
+Console.WriteLine("Inserisci la data della conferenza(gg/mm/yyyy): ");
 
 DateTime dataConferenza = DateTime.Parse(Console.ReadLine());
 

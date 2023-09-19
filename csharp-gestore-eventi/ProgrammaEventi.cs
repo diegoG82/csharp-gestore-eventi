@@ -100,7 +100,5 @@
             eventi.Add(conferenza);
         }
 
-
-
     }
 }
