@@ -1,35 +1,63 @@
 ﻿using csharp_gestore_eventi;
 
-Console.WriteLine("Benvenuto alla gestione ei tuoi eventi");
-Console.WriteLine();
+Console.WriteLine("Benvenuto all'interno del Gestore eventi!");
 
 Console.WriteLine("inserisci il nome della lista degli eventi:");
 string NomeProgramma = Console.ReadLine();
-
 
 Console.WriteLine("inserisci il numero degli eventi che vuoi creare: ");
 int NumeroProgramma = int.Parse(Console.ReadLine());
 
 ProgrammaEventi programma = new ProgrammaEventi(NomeProgramma);
 
-
 for (int i = 0; i < NumeroProgramma; i++)
 {
     Console.WriteLine("Inserisci il nome dell'evento " + (i + 1) + ":");
     string nomeEvento = Console.ReadLine();
 
+    Console.WriteLine("L'evento è una conferenza? (si/no)");
+    string rispostaConferenza = Console.ReadLine();
+
+    bool isConferenza = rispostaConferenza == "si";
+
     Console.WriteLine("Inserisci la data dell'evento " + (i + 1) + ":");
     DateTime dataEvento = DateTime.Parse(Console.ReadLine());
 
-    Console.WriteLine("Inserisci la capienza massima dell'evento" + (i + 1) + ":");
+    Console.WriteLine("Inserisci la capienza massima dell'evento " + (i + 1) + ":");
     int capienzaTotale = int.Parse(Console.ReadLine());
 
-    Console.WriteLine("Quanti posti vuoi prenotare?");
+    Console.WriteLine("Quanti posti vuoi prenotare? ");
     int PostiPrenotati = int.Parse(Console.ReadLine());
 
     try
     {
-        Evento evento = new Evento(nomeEvento, dataEvento, capienzaTotale, PostiPrenotati);
+        Evento evento;
+
+        if (isConferenza)
+        {
+            int capienza = 100;
+            int costoConferenza = 0;
+
+
+
+
+            Console.WriteLine("Dimmi il nome del relatore:");
+            string nomeRelatore = Console.ReadLine();
+
+            Console.WriteLine("Dammi il costo evento:");
+            costoConferenza = int.Parse(Console.ReadLine());
+
+            Conferenza nuovaConferenza = new Conferenza(nomeEvento, dataEvento, capienza, PostiPrenotati, nomeRelatore, costoConferenza);
+            evento = nuovaConferenza;
+
+
+
+
+        }
+        else
+        {
+            evento = new Evento(nomeEvento, dataEvento, capienzaTotale, PostiPrenotati);
+        }
 
         List<Evento> listaEventi = new List<Evento> { evento };
 
@@ -41,11 +69,9 @@ for (int i = 0; i < NumeroProgramma; i++)
         bool continua = true;
 
         while (continua)
-
         {
             Console.WriteLine("Vuoi disdire dei posti? (si/no)");
             string risposta = Console.ReadLine();
-
 
             if (risposta == "si")
             {
@@ -55,7 +81,6 @@ for (int i = 0; i < NumeroProgramma; i++)
                 Console.WriteLine($"Numero di posti ancora prenotatati = {evento.Postiprenotati}");
                 Console.WriteLine($"numero di posti disdetti = {postiDaDisdire}");
             }
-
             else if (risposta == "no")
             {
                 Console.WriteLine("Procediamo alle fase successiva");
@@ -63,6 +88,9 @@ for (int i = 0; i < NumeroProgramma; i++)
                 continua = false;
                 continue;
             }
+
+
+
 
         }
     }
@@ -90,35 +118,17 @@ DateTime dataEventoRichiesto = DateTime.Parse(Console.ReadLine());
 programma.StampaListaEventiPerData(dataEventoRichiesto);
 Console.WriteLine();
 
-//BONUS
 
-Console.WriteLine("Ecco il gestore delle conferenze!");
 
-Console.WriteLine("Nome della conferenza: ");
 
-string conferenza = Console.ReadLine();
 
-Console.WriteLine("Inserisci la data della conferenza(gg/mm/yyyy): ");
 
-DateTime dataConferenza = DateTime.Parse(Console.ReadLine());
 
-Console.Write("Inserisci i posti della tua conferenza: ");
 
-int postiConferenza = int.Parse(Console.ReadLine());
-int postiPrenotati = 0;
 
-Console.Write("Inserisci il nome del relatore: ");
-string nomeRelatore = Console.ReadLine();
 
-Console.Write("Inserisci il prezzo della conferenza: ");
-int costoConferenza = int.Parse(Console.ReadLine());
 
-Conferenza nuovaConferenza = new Conferenza(conferenza, dataConferenza, postiConferenza, postiPrenotati, nomeRelatore, costoConferenza);
 
-programma.AggiungiConferenza(nuovaConferenza);
-
-Console.WriteLine("Ecco il programma eventi con anche le conferenze!");
-Console.WriteLine(programma.ToString());
 
 
 

@@ -90,15 +90,19 @@
 
         public void StampaListaEventiPerData(DateTime data)
         {
-            List<Evento> eventiPerData = ListaEventiPerData(data);
-            string listaEventi = StampaListaEventi(eventiPerData);
-            Console.WriteLine(listaEventi);
+            {
+                List<Evento> eventiPerData = ListaEventiPerData(data);
+                Console.WriteLine(StampaListaEventi(eventiPerData));
+            }
         }
 
         public void AggiungiConferenza(Conferenza conferenza)
         {
             eventi.Add(conferenza);
         }
+
+
+    
 
     }
 }
